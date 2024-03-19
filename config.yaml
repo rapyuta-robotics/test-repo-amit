@@ -1,0 +1,48 @@
+---
+workflow_options:
+  order_printing: false
+  order_scanning: false
+  replenishment_unload_scanning: false
+  print_order_on_assignment: false
+  tote_scanning_at_load: false
+  tote_scanning_at_unload: false
+  guide:         # Whether PGS should guide a worker for the following job types
+    loading: false
+    picking: true
+    unloading: false
+    replenishment_load: false
+    replenishment_drop: false
+    induction_load: false
+    induction_drop: false
+  token:
+    use_token: true
+    num_max_token: 10
+  user_identification: true
+  load_unload_user_identification: false
+  replenishment_load_user_identification: false
+  replenishment_unload_user_identification: false
+  induction_load_user_identification: false
+  ar_tag_localization: true
+  print_at_picking: true
+  print_at_picking_always_one_label: true
+  print_at_picking_on_exception: true
+  picking_loading_print_location: amr  # possible values: none | amr | loading_zone
+policy:
+  accept_lot_number_mismatch: true
+  ignore_lot_number_mismatch: true
+arrival_time_estimation_params:
+# arrival parameter: using an arrival time T based on a 1m/s default speed,
+# an improved arrival time estimate T* can be calculated by:
+# T* = f0 if T == 0
+# T* = a0 + a1 * T if T > 0
+  picker:
+    f0: 0
+    a0: 3.0
+    a1: 0.769230769  # inverse of 1.3m/s picker walking speed
+  robot:
+    f0: 2.83279290412
+    a0: 7.3869169912
+    a1: 1.5158640267
+application_options:
+  guide_screen_timeout: 7 # [seconds] Timeout after which we automatically transition from guide screen
+  needs_charging_percentage: 20.0 # [%] Percentage of battery charge below which we need to charge
