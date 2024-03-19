@@ -1,6 +1,6 @@
 ---
 workflow_options:
-  order_printing: false
+  order_printing: true
   order_scanning: false
   replenishment_unload_scanning: false
   print_order_on_assignment: false
